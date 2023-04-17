@@ -1,0 +1,28 @@
+.sidebar
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #14131B;
+    padding: 10px 25px;
+    gap: 40px;
+    color: white;
+}
+
+.sidebar-links
+{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-link
+{
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    color: #848389;
+    transition: all 250ms;
+}
+.sidebar-link:hover
+{
+    color: #F9F9FB;
+}
