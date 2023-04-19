@@ -1,19 +1,18 @@
-.catalogue
-{
+.catalogue {
     flex: 0.5;
-    background-color: rgb(10,10,10);
+    background-color: rgb(10, 10, 10);
     color: white;
     padding: 10px 25px;
 }
 
-.cat-top-tp
-{
+.cat-top-tp {
     display: flex;
     justify-content: space-between;
     position: relative;
+    font-size: 1.1rem;
 }
-.cat-top-tp::after
-{
+
+.cat-top-tp::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -21,17 +20,38 @@
     height: 1px;
     background-color: #848389;
 }
-.cat-top-tp-right
-{
+
+.cat-top-tp-right {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.cat-top-tp-pro
-{
+.cat-top-tp-pro {
     background-color: white;
     border-radius: 50%;
     height: 20px;
     width: 20px;
+}
+
+.cat-top-btm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1.05rem;
+}
+
+.cat-top-btm span>span {
+    color: #499dff;
+}
+
+
+.cat-btm {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: 85vh;
 }

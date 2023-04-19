@@ -1,6 +1,7 @@
 import React from "react";
 import "./catalogue.css";
 import { NotificationsActiveRounded } from "@mui/icons-material";
+import Card from "../Card/Card";
 
 function Catalogue() {
   return (
@@ -14,8 +15,20 @@ function Catalogue() {
               <div className="cat-top-tp-pro"></div>
             </div>
           </div>
+          <div className="cat-top-btm">
+            <span>
+              Search Results <span>Bhubaneswar,India</span>
+            </span>
+            <span>20 Parkings found</span>
+          </div>
         </div>
-        <div className="cat-btm"></div>
+        <div className="cat-btm">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     </div>
   );

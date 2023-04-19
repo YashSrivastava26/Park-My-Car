@@ -5,11 +5,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import ArticleIcon from "@mui/icons-material/Article";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import logo from "../../Common Resources/logo2.png";
 function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-container">
-        <h1 className="logo">P</h1>
+        <img className="logo" src={logo}></img>
         <div className="sidebar-links">
           <div className="sidebar-link">
             <DashboardIcon />
