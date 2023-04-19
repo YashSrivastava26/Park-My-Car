@@ -1,18 +1,32 @@
 .sidebar
 {
+    background-color: rgb(16,18,19);
+    height: 100%;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.sidebar-container
+{
     display: flex;
     flex-direction: column;
-    background-color: #14131B;
     padding: 10px 25px;
     gap: 40px;
     color: white;
+    height: -webkit-fill-available;
+    justify-content: space-between;
+}
+
+.logo
+{
+    flex: 0.05;
 }
 
 .sidebar-links
 {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 3rem;
+    flex: 0.95;
+    justify-content: center;
 }
 
 .sidebar-link
@@ -21,8 +35,18 @@
     cursor: pointer;
     color: #848389;
     transition: all 250ms;
+    padding: 4px;
+    display: flex;
+    border-radius: 8px;
 }
 .sidebar-link:hover
 {
-    color: #F9F9FB;
+    color: black;
+    background-color: #499dff;
+}
+
+.sidebar-open
+{
+    /* margin-top: auto; */
+    flex: 0.05;
 }

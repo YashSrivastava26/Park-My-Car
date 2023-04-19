@@ -1,14 +1,32 @@
 import React from "react";
 import "./sidebar.css";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from "@mui/icons-material/Person";
+import ArticleIcon from "@mui/icons-material/Article";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <h1 className="logo">P</h1>
-      <div className="sidebar-links">
-        <div className="sidebar-link">Dashboard</div>
-        <div className="sidebar-link">Allotment</div>
-        <div className="sidebar-link">User</div>
-        <div className="sidebar-link">History</div>
+      <div className="sidebar-container">
+        <h1 className="logo">P</h1>
+        <div className="sidebar-links">
+          <div className="sidebar-link">
+            <DashboardIcon />
+          </div>
+          <div className="sidebar-link">
+            <PersonIcon />
+          </div>
+          <div className="sidebar-link">
+            <ArticleIcon />
+          </div>
+          <div className="sidebar-link">
+            <FavoriteIcon />
+          </div>
+        </div>
+        <div className="sidebar-open sidebar-link">
+          <ExitToAppIcon />
+        </div>
       </div>
     </div>
   );

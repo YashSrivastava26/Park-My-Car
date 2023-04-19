@@ -1,4 +1,37 @@
 .catalogue
 {
     flex: 0.5;
+    background-color: rgb(10,10,10);
+    color: white;
+    padding: 10px 25px;
+}
+
+.cat-top-tp
+{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.cat-top-tp::after
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #848389;
+}
+.cat-top-tp-right
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cat-top-tp-pro
+{
+    background-color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
 }
