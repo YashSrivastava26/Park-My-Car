@@ -17,7 +17,7 @@ function Mapwrapper() {
     [-90, -180],
     [90, 180],
   ];
-  const provider = new OpenStreetMapProvider();
+  // const provider = new OpenStreetMapProvider();
 
   useEffect(() => {
     if (mapRef.current) {
