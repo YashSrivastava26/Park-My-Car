@@ -5,6 +5,7 @@ import distance from "./icons/distance.png";
 import favorite from "./icons/favorite.png";
 import like from "./icons/love.png";
 import parking from "./icons/parking.png";
+import { FavoriteBorderRounded, LocationOnRounded } from "@mui/icons-material";
 
 function Card() {
   return (
@@ -21,12 +22,12 @@ function Card() {
           </span>
           <div className="card-aminities">
             <div className="card-aminity">
-              <img src={distance} alt="" />
+              <LocationOnRounded sx={{ fontSize: "1rem" }} />
               <span>10km</span>
             </div>
             <div className="card-aminity">
               {/* <img className="no-invert" src={favorite} alt="" /> */}
-              <img src={like} alt="" />
+              <FavoriteBorderRounded sx={{ fontSize: "1rem" }} />
             </div>
           </div>
         </div>

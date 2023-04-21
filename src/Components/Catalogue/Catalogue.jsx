@@ -19,15 +19,17 @@ function Catalogue() {
             <span>
               Search Results <span>Bhubaneswar,India</span>
             </span>
-            <span>20 Parkings found</span>
+            <span className="results-no">20 Parkings found</span>
           </div>
         </div>
         <div className="cat-btm">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <div className="cat-btm-container">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
         </div>
       </div>
     </div>

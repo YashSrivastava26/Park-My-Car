@@ -10,7 +10,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-container">
-        <img className="logo" src={logo}></img>
+        <h1 className="logo">P</h1>
         <div className="sidebar-links">
           <div className="sidebar-link">
             <DashboardIcon />
