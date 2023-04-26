@@ -5,6 +5,7 @@ import Login from "./Components/Login/Login";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { BrowserRouter as Router , Route , Routes } from 'react-router-dom'
 import SignUp from "./Components/SignUp/SignUp";
+import { Description } from "@mui/icons-material";
 function App() {
   return (
     <Router >
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="/" element={<Catalogue/>} />
               <Route exact path="/login" element={<Login/>} />
               <Route exact path="/signup" element={<SignUp/>} />
+              <Route exact path="/desc" element={<Description/>} />
             </Route>
           </Routes> 
           

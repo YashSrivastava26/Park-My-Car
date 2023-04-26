@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import './login.css';
 
 
 export default function SignIn() {
@@ -23,11 +24,11 @@ export default function SignIn() {
   };
 
   return (
-      <Container component="main" maxWidth="xs">
+      <div className='loginContainer'>
+        <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -82,5 +83,6 @@ export default function SignIn() {
           </Box>
         </Box>
       </Container>
+      </div>
   );
 }
