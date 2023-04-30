@@ -8,16 +8,34 @@ import {
   ZoomControl,
 } from "react-leaflet";
 import L from "leaflet";
-// import { SearchControl, OpenStreetMapProvider } from "react-leaflet-search";
+import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
+
+// make new leaflet element
+const Search = (props) => {
+  const { provider } = props;
+
+  useEffect(() => {
+    const searchControl = new GeoSearchControl({
+      provider,
+    });
+
+    props.map.current.addControl(searchControl); // this is how you add a control in vanilla leaflet
+    return () => props.map.current.removeControl(searchControl);
+  }, [props]);
+
+  return null; // don't want anything to show up from this comp
+};
 
 function Mapwrapper() {
   const mapRef = useRef();
+
+  const searchControlRef = useRef();
+
   const [zoom, setZoom] = useState(2);
   const maxBounds = [
     [-90, -180],
     [90, 180],
   ];
-  const provider = new OpenStreetMapProvider();
 
   useEffect(() => {
     if (mapRef.current) {
@@ -51,6 +69,9 @@ function Mapwrapper() {
           placeholder="Search for a location"
           // search={search}
         /> */}
+        {/* <SearchControl position="topright" /> */}
+        <Search map={mapRef} provider={new OpenStreetMapProvider()} />
+
         <ZoomControl position="bottomright" />
       </MapContainer>
     </div>
