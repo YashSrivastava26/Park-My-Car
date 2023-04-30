@@ -36,6 +36,10 @@ function Mapwrapper() {
     [-90, -180],
     [90, 180],
   ];
+<<<<<<< HEAD
+=======
+  // const provider = new OpenStreetMapProvider();
+>>>>>>> 71f8758118c894109c0ad3e37f27791f72590bc1
 
   useEffect(() => {
     if (mapRef.current) {
