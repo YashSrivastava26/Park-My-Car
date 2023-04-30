@@ -8,17 +8,33 @@ import {
   ZoomControl,
 } from "react-leaflet";
 import L from "leaflet";
-// import { SearchControl, OpenStreetMapProvider } from "react-leaflet-search";
+import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
+
+// make new leaflet element
+const Search = (props) => {
+  const { provider } = props;
+
+  useEffect(() => {
+    const searchControl = new GeoSearchControl({
+      provider,
+    });
+
+    props.map.current.addControl(searchControl); // this is how you add a control in vanilla leaflet
+  }, [props]);
+
+  return null; // don't want anything to show up from this comp
+};
 
 function Mapwrapper() {
   const mapRef = useRef();
+
+  const searchControlRef = useRef();
+
   const [zoom, setZoom] = useState(2);
   const maxBounds = [
     [-90, -180],
     [90, 180],
   ];
-  const provider = new OpenStreetMapProvider();
-
   useEffect(() => {
     if (mapRef.current) {
       mapRef.current.on("move", () => {
@@ -40,17 +56,15 @@ function Mapwrapper() {
         ref={mapRef}
         zoomControl={false}
         maxBounds={maxBounds}
+        minZoom={2}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data © <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors"
         />
-        {/* <SearchControl
-          provider={provider}
-          position="topleft"
-          placeholder="Search for a location"
-          // search={search}
-        /> */}
+
+        <Search map={mapRef} provider={new OpenStreetMapProvider()} />
+
         <ZoomControl position="bottomright" />
       </MapContainer>
     </div>
