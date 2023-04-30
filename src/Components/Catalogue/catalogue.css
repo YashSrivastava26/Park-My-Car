@@ -3,6 +3,7 @@
     padding: 10px 15px;
     height: 100%;
 }
+
 .catalogue-container {
     flex: 0.5;
     padding: 10px 25px;
@@ -11,8 +12,7 @@
     flex-direction: column;
 }
 
-.cat-top
-{
+.cat-top {
     flex: 0.1;
 }
 
@@ -56,8 +56,8 @@
     font-size: 1.05rem;
     font-weight: 500;
 }
-.results-no
-{
+
+.results-no {
     color: #B6B6B6;
     font-size: 0.7rem;
 }
@@ -68,24 +68,26 @@
 
 
 .cat-btm {
-   /* flex: 0; */
-   overflow: hidden;
-   position: relative;
+    /* flex: 0; */
+    overflow: hidden;
+    position: relative;
 }
+
 .cat-btm::after {
     content: "";
     position: absolute;
     width: 100%;
     height: 10px;
-    background: linear-gradient(#f5f7f926,#ffffff);
+    background: linear-gradient(#f5f7f926, #ffffff);
     bottom: 0;
     left: 0;
 }
+
 .cat-btm-container {
-   height: 97%;
-   /* display: flex; */
-   /* flex-direction: column; */
-   overflow-y: scroll;
+    height: 97%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -94,13 +96,47 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
     border-radius: 13px;
     overflow: hidden;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #499dff; 
+    background: #499dff;
     border-radius: 13px;
     box-shadow: 0px 10px 10px #4C76E1;
-  }
+}
+
+.login-btn-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    box-shadow: 1px 1px 10px rgb(0 0 0/20%);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.login-btn-container a {
+    text-decoration: none;
+}
+
+
+.login-btn {
+    background-color: #499dff;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 250ms;
+    box-shadow: -2px 0px 7px #499dff;
+}
+
+.login-btn:hover {
+    background-color: #4C76E1;
+}
+
+.signup-btn {
+    padding-left: 10px;
+}

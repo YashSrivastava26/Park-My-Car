@@ -11,10 +11,6 @@ function Landing() {
         <Outlet />
       </div>
       <Mapwrapper />
-      <div className="login-signup-btn-container">
-        <button className="login-btn">Login</button>
-        <button className="signin-btn">Signup</button>
-      </div>
     </div>
   );
 }

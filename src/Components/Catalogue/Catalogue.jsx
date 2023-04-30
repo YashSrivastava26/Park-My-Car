@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./catalogue.css";
 import { NotificationsActiveRounded } from "@mui/icons-material";
 import Card from "../Card/Card";
+import { Link } from "react-router-dom";
 
 function Catalogue() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className="catalogue">
       <div className="catalogue-container">
@@ -11,8 +13,21 @@ function Catalogue() {
           <div className="cat-top-tp">
             <h3>Dashboard</h3>
             <div className="cat-top-tp-right">
-              <NotificationsActiveRounded />
-              <div className="cat-top-tp-pro"></div>
+              {loggedIn ? (
+                <>
+                  <NotificationsActiveRounded />
+                  <div className="cat-top-tp-pro"></div>
+                </>
+              ) : (
+                <div className="login-btn-container">
+                  <Link to="/signup">
+                    <div className="signup-btn">Signup</div>
+                  </Link>
+                  <Link to="/login">
+                    <div className="login-btn">Login</div>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
           <div className="cat-top-btm">
