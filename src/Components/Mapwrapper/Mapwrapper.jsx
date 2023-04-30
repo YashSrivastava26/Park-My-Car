@@ -20,7 +20,6 @@ const Search = (props) => {
     });
 
     props.map.current.addControl(searchControl); // this is how you add a control in vanilla leaflet
-    return () => props.map.current.removeControl(searchControl);
   }, [props]);
 
   return null; // don't want anything to show up from this comp
@@ -57,6 +56,7 @@ function Mapwrapper() {
         ref={mapRef}
         zoomControl={false}
         maxBounds={maxBounds}
+        minZoom={2}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

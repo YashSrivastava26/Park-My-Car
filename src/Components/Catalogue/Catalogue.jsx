@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./catalogue.css";
 import { NotificationsActiveRounded } from "@mui/icons-material";
 import Card from "../Card/Card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Catalogue() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="catalogue">
       <div className="catalogue-container">
@@ -39,11 +40,34 @@ function Catalogue() {
         </div>
         <div className="cat-btm">
           <div className="cat-btm-container">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <div
+              onClick={() => {
+                navigate("/parking");
+              }}
+            >
+              <Card />
+            </div>
+            <div
+              onClick={() => {
+                navigate("/parking");
+              }}
+            >
+              <Card />
+            </div>
+            <div
+              onClick={() => {
+                navigate("/parking");
+              }}
+            >
+              <Card />
+            </div>
+            <div
+              onClick={() => {
+                navigate("/parking");
+              }}
+            >
+              <Card />
+            </div>
           </div>
         </div>
       </div>

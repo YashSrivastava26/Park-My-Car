@@ -1,0 +1,149 @@
+.parking {
+    height: 100%;
+    width: 100%;
+}
+
+.parking-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.park-left {
+    flex: 0.5;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.park-right {
+    flex: 0.48;
+    /* width: fit-content; */
+    height: 95%;
+    overflow: hidden;
+    /* display: flex; */
+    /* align-items: center; */
+    border-radius: 8px;
+    margin: auto;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.plr-map {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.pl-top {
+    display: flex;
+    flex: 0.05;
+    flex-direction: column;
+}
+
+.pltt {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 1.6rem;
+
+}
+
+.pltt span span {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.pltb {
+    font-size: 0.9rem;
+}
+
+.pl-mid {
+    display: flex;
+    flex: 0.7;
+    overflow: hidden;
+    gap: 5px;
+}
+
+.plml {
+    flex: 0.7;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.plml img {
+    height: 100%;
+    width: 100%;
+}
+
+.plmr {
+    flex: 0.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plmr img {
+    height: 32.5%;
+    border-radius: 8px;
+}
+
+.pl-btm {
+    flex: 0.35;
+    display: flex;
+    flex-direction: column;
+}
+
+.plbt span {
+    font-weight: 400;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.plbt span::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #499dff;
+}
+
+.plbt p {
+    font-size: 1.1rem;
+    height: 20vh;
+    overflow-y: scroll;
+}
+
+.plbb {
+    margin-top: auto;
+    display: flex;
+}
+
+.plbb button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.plbb button:nth-child(1) {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background: #499dff;
+    color: white;
+    box-shadow: 1px 1px 7px #499dff;
+}
+
+.plbb button:nth-child(2) {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 200;
+    gap: 5px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
