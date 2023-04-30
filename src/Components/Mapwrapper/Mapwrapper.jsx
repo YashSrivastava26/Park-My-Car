@@ -36,11 +36,6 @@ function Mapwrapper() {
     [-90, -180],
     [90, 180],
   ];
-<<<<<<< HEAD
-=======
-  // const provider = new OpenStreetMapProvider();
->>>>>>> 71f8758118c894109c0ad3e37f27791f72590bc1
-
   useEffect(() => {
     if (mapRef.current) {
       mapRef.current.on("move", () => {
@@ -67,13 +62,7 @@ function Mapwrapper() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data © <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors"
         />
-        {/* <SearchControl
-          provider={provider}
-          position="topleft"
-          placeholder="Search for a location"
-          // search={search}
-        /> */}
-        {/* <SearchControl position="topright" /> */}
+
         <Search map={mapRef} provider={new OpenStreetMapProvider()} />
 
         <ZoomControl position="bottomright" />
