@@ -3,9 +3,10 @@ import "./catalogue.css";
 import { NotificationsActiveRounded } from "@mui/icons-material";
 import Card from "../Card/Card";
 import { Link, useNavigate } from "react-router-dom";
+import { useDataLayerValue } from "../../Datalayer/DataLayer";
 
 function Catalogue() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { state } = useDataLayerValue();
   const navigate = useNavigate();
   return (
     <div className="catalogue">
@@ -14,7 +15,7 @@ function Catalogue() {
           <div className="cat-top-tp">
             <h3>Dashboard</h3>
             <div className="cat-top-tp-right">
-              {loggedIn ? (
+              {state?.loggedIn ? (
                 <>
                   <NotificationsActiveRounded />
                   <div className="cat-top-tp-pro"></div>

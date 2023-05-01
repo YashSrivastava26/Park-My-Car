@@ -10,25 +10,12 @@ import {
 import L from "leaflet";
 import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
 
-// make new leaflet element
-const Search = (props) => {
-  const { provider } = props;
-
-  useEffect(() => {
-    const searchControl = new GeoSearchControl({
-      provider,
-    });
-
-    props.map.current.addControl(searchControl); // this is how you add a control in vanilla leaflet
-  }, [props]);
-
-  return null; // don't want anything to show up from this comp
-};
-
 function Mapwrapper() {
   const mapRef = useRef();
 
-  const searchControlRef = useRef();
+  const searchControl = new GeoSearchControl({
+    provider: new OpenStreetMapProvider(),
+  });
 
   const [zoom, setZoom] = useState(2);
   const maxBounds = [
@@ -36,6 +23,7 @@ function Mapwrapper() {
     [90, 180],
   ];
   useEffect(() => {
+    mapRef.current?.addControl(searchControl);
     if (mapRef.current) {
       mapRef.current.on("move", () => {
         const center = this.map.getCenter();
@@ -62,8 +50,6 @@ function Mapwrapper() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data © <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors"
         />
-
-        <Search map={mapRef} provider={new OpenStreetMapProvider()} />
 
         <ZoomControl position="bottomright" />
       </MapContainer>

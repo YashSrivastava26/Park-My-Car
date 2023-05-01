@@ -6,7 +6,9 @@ import ArticleIcon from "@mui/icons-material/Article";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import logo from "../../Common Resources/logo2.png";
+import { useDataLayerValue } from "../../Datalayer/DataLayer";
 function Sidebar() {
+  const { state, logoutFunc } = useDataLayerValue();
   return (
     <div className="sidebar">
       <div className="sidebar-container">
@@ -25,8 +27,9 @@ function Sidebar() {
             <FavoriteIcon />
           </div>
         </div>
-        <div className="sidebar-open sidebar-link">
-          <ExitToAppIcon />
+
+        <div className="sidebar-open sidebar-link" onClick={() => logoutFunc()}>
+          <ExitToAppIcon sx={{ color: "red" }} />
         </div>
       </div>
     </div>

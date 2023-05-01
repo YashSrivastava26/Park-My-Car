@@ -1,46 +1,67 @@
-import React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import './login.css';
-
+import React, { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import "./login.css";
+import { Api } from "../../Api/Axios";
+import { useDataLayerValue } from "../../Datalayer/DataLayer";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const [loginDetails, setLoginDetails] = useState({});
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setLoginDetails((state) => ({ ...state, [e.target.id]: e.target.value }));
+  };
+
+  const { changeLoginState, startLoading, stopLoading } = useDataLayerValue();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    startLoading();
+    await Api.post("/auth/login", loginDetails)
+      .then((res) => {
+        const token = res.data.token;
+        const userData = res.data.user;
+        changeLoginState(userData, token);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err?.response?.data?.error?.message);
+      });
+    stopLoading();
   };
 
   return (
-      <div className='loginContainer'>
-        <Container component="main" maxWidth="xs">
+    <div className="loginContainer">
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
-            icon
-          </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: "blue" }}>icon</Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               required
@@ -50,6 +71,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => handleChange(e)}
             />
             <TextField
               margin="normal"
@@ -60,6 +82,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => handleChange(e)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -83,6 +106,6 @@ export default function SignIn() {
           </Box>
         </Box>
       </Container>
-      </div>
+    </div>
   );
 }
