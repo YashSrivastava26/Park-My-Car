@@ -5,7 +5,7 @@ import Login from "./Components/Login/Login";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Components/SignUp/SignUp";
-import { Description } from "@mui/icons-material";
+import UserProfile from "./Components/UserProfile/UserProfile";
 import Parking from "./Components/ParkingInfo/Parking";
 import Bookings from "./Components/Bookings/Bookings";
 import { Backdrop } from "@mui/material";
@@ -57,6 +57,7 @@ function App() {
                   <Route exact path="/login" element={<Login />} />
                   <Route exact path="/signup" element={<SignUp />} />
                   <Route exact path="/bookings" element={<Bookings />} />
+                  <Route exact path="/profile" element={<UserProfile />} />
                 </Route>
                 <Route path="/parking" element={<Parking />} />
               </Routes>

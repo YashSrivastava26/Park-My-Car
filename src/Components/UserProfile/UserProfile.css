@@ -1,0 +1,53 @@
+.userProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-evenly;
+    height: 70%;
+    width: 80%;
+}
+
+.detailsContainer{
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0 , 0.3);
+}
+.paddingDetail{
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.historyContainer{
+    width: 100%;
+    border-top-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0 , 0.3);
+}
+
+.detailHeading{
+    margin-bottom: 0;
+    font-weight: 500;
+}
+.detail{
+    margin-top:0;
+}
+.showHistory{
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0 , 0.3);
+}
