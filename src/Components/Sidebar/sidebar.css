@@ -42,6 +42,10 @@
     width: fit-content;
 }
 
+.sidebar-link-active {
+    color: #4C76E1;
+}
+
 .sidebar-link:hover {
     /* color: black; */
     color: #4C76E1;

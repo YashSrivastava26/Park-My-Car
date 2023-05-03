@@ -37,8 +37,10 @@ function Parking() {
       });
   };
 
-  const getParking = async (id) => {
-    await Api.get("/parking-plaza/get-parking-by-id", { params: { id: id } })
+  const getParking = async (parkingId) => {
+    await Api.get("/parking-plaza/get-parking-by-id", {
+      params: { id: parkingId },
+    })
       .then((res) => {
         setParkingInfo(res.data.parking);
         getLocationDetails(
@@ -59,12 +61,12 @@ function Parking() {
   };
 
   useEffect(() => {
-    const id = params?.id;
-    console.log(id);
-    if (id) {
-      getParking(id);
+    const parkingId = params?.id;
+    console.log(parkingId);
+    if (parkingId) {
+      getParking(parkingId);
     }
-  }, [params?.id]);
+  }, [params?.parkingId]);
 
   return (
     <>
