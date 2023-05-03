@@ -41,9 +41,52 @@ export const DataLayer = ({ initialState, reducer, children }) => {
     });
   };
 
+  const showSuccess = (message) => {
+    dispatch({
+      type: "SHOW_ERROR",
+      errorMessage: "",
+    });
+    dispatch({
+      type: "SHOW_SUCCESS",
+      successMessage: message,
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: "SHOW_SUCCESS",
+        successMessage: "",
+      });
+    }, 3000);
+  };
+  const showError = (message) => {
+    dispatch({
+      type: "SHOW_SUCCESS",
+      successMessage: "",
+    });
+    dispatch({
+      type: "SHOW_ERROR",
+      errorMessage: message,
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: "SHOW_ERROR",
+        errorMessage: "",
+      });
+    }, 3000);
+  };
+
   return (
     <DataLayerContext.Provider
-      value={{ state, changeLoginState, startLoading, stopLoading, logoutFunc }}
+      value={{
+        state,
+        changeLoginState,
+        startLoading,
+        stopLoading,
+        logoutFunc,
+        showSuccess,
+        showError,
+      }}
     >
       {children}
     </DataLayerContext.Provider>

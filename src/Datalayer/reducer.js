@@ -2,6 +2,8 @@ export const initialState = {
   userData: {},
   loggedIn: false,
   loading: false,
+  successMessage: "",
+  errorMessage: "",
 };
 
 const reducer = (state, action) => {
@@ -20,6 +22,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         userData: action.userData,
+      };
+    case "SHOW_SUCCESS":
+      return {
+        ...state,
+        successMessage: action.successMessage,
+      };
+    case "SHOW_ERROR":
+      return {
+        ...state,
+        errorMessage: action.errorMessage,
       };
     default:
       return state;

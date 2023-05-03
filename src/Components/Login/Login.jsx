@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -23,7 +23,14 @@ export default function SignIn() {
     setLoginDetails((state) => ({ ...state, [e.target.id]: e.target.value }));
   };
 
-  const { changeLoginState, startLoading, stopLoading } = useDataLayerValue();
+  const {
+    state,
+    changeLoginState,
+    startLoading,
+    stopLoading,
+    showSuccess,
+    showError,
+  } = useDataLayerValue();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,13 +40,19 @@ export default function SignIn() {
         const token = res.data.token;
         const userData = res.data.user;
         changeLoginState(userData, token);
-        navigate("/");
+        showSuccess("Login successful");
       })
       .catch((err) => {
-        console.log(err?.response?.data?.error?.message);
+        showError(err?.response?.data?.error?.message);
       });
     stopLoading();
   };
+
+  useEffect(() => {
+    if (state.loggedIn) {
+      navigate(-1);
+    }
+  }, [state]);
 
   return (
     <div className="loginContainer">

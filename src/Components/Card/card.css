@@ -79,6 +79,7 @@
     align-items: center;
     /* margin-top: auto; */
     display: flex;
+    font-size: 1.2rem;
 }
 
 .card-aminities img {

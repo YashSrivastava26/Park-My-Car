@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
-import "./BookingForm.css"
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import "./BookingForm.css";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function BookingForm(props) {
   const handleOpen = () => props.setOpen(true);
@@ -15,7 +15,7 @@ export default function BookingForm(props) {
   const [bookingDetails, setBookingDetails] = useState({
     parking_plaza_id: parkingPlazaReadOnlyDetails.parking_plaza_id,
     amount: parkingPlazaReadOnlyDetails.amount,
-    transaction_id: parkingPlazaReadOnlyDetails.transaction_id
+    transaction_id: parkingPlazaReadOnlyDetails.transaction_id,
   });
 
   const handleChange = (e) => {
@@ -24,7 +24,7 @@ export default function BookingForm(props) {
   const handleSubmit = async (e) => {
     console.log(bookingDetails);
     props.setOpen(false);
-  }
+  };
   return (
     <div>
       {console.log(bookingDetails)}
@@ -40,9 +40,9 @@ export default function BookingForm(props) {
           onSubmit={handleSubmit}
           noValidate
           sx={{ mt: 1 }}
-          className='bookingForm'
+          className="bookingForm"
         >
-          <h3 className='bookingFormHeading'>Booking Form</h3>
+          <h3 className="bookingFormHeading">Booking Form</h3>
           <TextField
             margin="normal"
             fullWidth
@@ -66,7 +66,8 @@ export default function BookingForm(props) {
                 label="Parking Start Time"
                 name="parking_start_time "
                 autoFocus
-                onChange={(e) => handleChange(e)} />
+                onChange={(e) => handleChange(e)}
+              />
               <TimePicker
                 margin="normal"
                 required
@@ -75,7 +76,8 @@ export default function BookingForm(props) {
                 label="Parking End Time"
                 name="parking_end_time "
                 autoFocus
-                onChange={(e) => handleChange(e)} />
+                onChange={(e) => handleChange(e)}
+              />
             </div>
           </LocalizationProvider>
           {/* <TextField

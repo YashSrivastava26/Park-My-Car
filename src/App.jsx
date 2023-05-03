@@ -13,14 +13,19 @@ import Loader from "./Components/Loader/Loader";
 import { useDataLayerValue } from "./Datalayer/DataLayer";
 import { useEffect, useState } from "react";
 import { Api } from "./Api/Axios";
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
 function App() {
-  const { state, changeLoginState, startLoading, stopLoading } =
-    useDataLayerValue();
+  const {
+    state,
+    changeLoginState,
+    startLoading,
+    stopLoading,
+    showSuccess,
+    showError,
+  } = useDataLayerValue();
   // const { loggedIn } = state;
-  const [showAlert, setshowAlert] = useState()
 
   const getUser = async (token) => {
     startLoading();
@@ -31,13 +36,10 @@ function App() {
       })
       .catch((err) => {
         console.log(err?.response?.data?.error?.message);
+        showError("Something went wrong ... Please try again");
       });
     stopLoading();
   };
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
 
   useEffect(() => {
     const token = localStorage.getItem("AUTH_TOKEN");
@@ -63,7 +65,7 @@ function App() {
                   <Route exact path="/bookings" element={<Bookings />} />
                   <Route exact path="/profile" element={<UserProfile />} />
                 </Route>
-                <Route path="/parking" element={<Parking />} />
+                <Route path="/parking/:id" element={<Parking />} />
               </Routes>
             </div>
           </div>
@@ -75,14 +77,18 @@ function App() {
       >
         <Loader />
       </Backdrop>
-      {showAlert == 'error' && <Alert severity="error"  className="alert">
-        <AlertTitle>Error</AlertTitle>
-        This is an error alert — <strong>check it out!</strong>
-      </Alert>}
-      {showAlert == 'sucess' && <Alert severity="success" className="alert">
-        <AlertTitle>Success</AlertTitle>
-        This is a success alert — <strong>check it out!</strong>
-      </Alert>}
+      {state.errorMessage !== "" && (
+        <Alert severity="error" className="alert">
+          <AlertTitle>Error</AlertTitle>
+          Error — <strong>{state.errorMessage}</strong>
+        </Alert>
+      )}
+      {state.successMessage !== "" && (
+        <Alert severity="success" className="alert">
+          <AlertTitle>Success</AlertTitle>
+          Success — <strong>{state.successMessage}</strong>
+        </Alert>
+      )}
     </>
   );
 }
