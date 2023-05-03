@@ -11,12 +11,16 @@ import Bookings from "./Components/Bookings/Bookings";
 import { Backdrop } from "@mui/material";
 import Loader from "./Components/Loader/Loader";
 import { useDataLayerValue } from "./Datalayer/DataLayer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Api } from "./Api/Axios";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
 function App() {
   const { state, changeLoginState, startLoading, stopLoading } =
     useDataLayerValue();
   // const { loggedIn } = state;
+  const [showAlert, setshowAlert] = useState()
 
   const getUser = async (token) => {
     startLoading();
@@ -71,6 +75,14 @@ function App() {
       >
         <Loader />
       </Backdrop>
+      {showAlert == 'error' && <Alert severity="error"  className="alert">
+        <AlertTitle>Error</AlertTitle>
+        This is an error alert — <strong>check it out!</strong>
+      </Alert>}
+      {showAlert == 'sucess' && <Alert severity="success" className="alert">
+        <AlertTitle>Success</AlertTitle>
+        This is a success alert — <strong>check it out!</strong>
+      </Alert>}
     </>
   );
 }

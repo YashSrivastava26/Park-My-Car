@@ -18,3 +18,7 @@
   width: 100%;
   overflow: hidden;
 }
+.alert{
+  position: absolute;
+  top: 0;
+}

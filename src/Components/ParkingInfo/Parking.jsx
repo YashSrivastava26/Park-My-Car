@@ -9,8 +9,14 @@ import {
 import "./parking.css";
 import image from "../../Common Resources/img1.jpeg";
 import { FavoriteBorder } from "@mui/icons-material";
+import BookingForm from "../Booking Form/BookingForm";
 function Parking() {
+  const [open, setOpen] = useState(false)
+  const handleOnClick = () => {
+    setOpen(true);
+  }
   return (
+    <>
     <div className="parking">
       <div className="parking-container">
         <div className="park-left">
@@ -44,7 +50,7 @@ function Parking() {
               </p>
             </div>
             <div className="plbb">
-              <button>Book a slot</button>
+              <button onClick={handleOnClick}>Book a slot</button>
               <button>
                 <FavoriteBorder /> Add to favorite
               </button>
@@ -69,6 +75,8 @@ function Parking() {
         </div>
       </div>
     </div>
+    {open && <BookingForm open={open} setOpen={setOpen} parkingPlazaReadOnlyDetails={{parking_plaza_id: 123, amount:20000000000, transaction_id:1235468}} />}
+    </>
   );
 }
 
